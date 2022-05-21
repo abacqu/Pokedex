@@ -2,9 +2,13 @@ const express = require('express');
 const app = express();
 // const Pokemon = require('./models/pokemon');
 const Pokemon = require('./models/pokemon');
+const methodOverride = require("method-override");
 
 
 const port = 3000;
+
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride("_method"));
 
 
 // INDEX
@@ -15,11 +19,34 @@ app.get('/', (req, res) => {
 
 // NEW
 
+app.get("/new", (req, res) => {
+    res.render('new.ejs', { Pokemon: Pokemon });
+});
+
 // DELETE
 
 // UPDATE
 
 // CREATE
+
+app.post("/", (req, res) => {
+    // let pok = {};
+    // pok.name = req.body.name;
+    // pok.type = req.body.type;
+    // pok.stats = { hp: req.body.hp,
+    //               attack: req.body.attack,
+    //               defense: req.body.defense };
+    Pokemon.push({
+        name: req.body.name,
+        type: req.body.type,
+        stats: {
+            hp: req.body.hp,
+            attack: req.body.attack,
+            defense: req.body.defense
+        }
+    });
+    res.redirect("/") //send the user back to "/"
+});
 
 // EDIT
 

@@ -7,6 +7,19 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="container">
+        <h1><%=pokemon.name%></h1>
+        
+        <br>
+        <button onclick="location.href='/'" type="button">Back</button> 
+        <br>
+        <img src="<%=pokemon.img%>">
+        <br>
+        TYPE <%=pokemon.type; %>
+        <br>
+        HP:<%=pokemon.stats.hp%> <br>
+       ATTACK:<%=pokemon.stats.attack%> <br>
+       DEFENSE:<%=pokemon.stats.defense%> <br>
     
 </body>
 </html>

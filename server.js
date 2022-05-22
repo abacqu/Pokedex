@@ -9,7 +9,7 @@ const port = 3000;
 
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
-
+app.use(express.static('public'));
 
 // INDEX
 app.get('/', (req, res) => {

@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-// const Pokemon = require('./models/pokemon');
 const Pokemon = require('./models/pokemon');
 const methodOverride = require("method-override");
 
@@ -9,7 +8,7 @@ const port = 3000;
 
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 // INDEX
 app.get('/', (req, res) => {

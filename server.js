@@ -25,7 +25,22 @@ app.get("/new", (req, res) => {
 
 // DELETE
 
+app.delete("/:id", (req, res) => {
+    Pokemon.splice(req.params.id, 1) //remove the item from the array
+    res.redirect("/") //redirect back to index route
+})
+
 // UPDATE
+
+app.put("/:id", (req, res) => {
+    // console.log(req.params.id);
+    Pokemon[req.params.id].name = req.body.name;
+    Pokemon[req.params.id].type = req.body.type;
+    Pokemon[req.params.id].stats.hp = req.body.hp;
+    Pokemon[req.params.id].stats.attack = req.body.attack;
+    Pokemon[req.params.id].stats.defense = req.body.defense;
+    res.redirect("/") //redirect to the index page
+  })
 
 // CREATE
 
@@ -49,6 +64,16 @@ app.post("/", (req, res) => {
 });
 
 // EDIT
+
+app.get("/:id/edit", (req, res) => {
+    res.render(
+        "edit.ejs",
+        {
+            pokemon: Pokemon[req.params.id],
+            id: req.params.id,
+        } 
+    )
+})
 
 // SHOW
 app.get('/:id', (req, res) => {

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Pokemon App</title>
+    <!-- <link rel="stylesheet" href="/css/app.css" /> -->
+  </head>
+  <body>
+    <h1>Edit Pokemon Page</h1>
+    <form action="/<%=id%>?_method=PUT" method="POST">
+      <!--  NOTE: the form is pre-populated with values for the server-->
+      NAME: <input type="text" name="name" /><br />
+        TYPE: <input type="text" name="type" /><br />
+        HP: <input type="text" name="hp" /><br />
+        ATTACK: <input type="text" name="attack" /><br />
+        DEFENSE: <input type="text" name="defense" /><br>
+      <input type="submit" name="" value="Submit Changes" />
+    </form>
+  </body>
+</html>
